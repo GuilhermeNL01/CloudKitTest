@@ -8,10 +8,12 @@
 import SwiftUI
 import CloudKit
 
+
+
 class CloudKitCrudBootcampViewModel: ObservableObject {
     
     @Published var text: String = ""
-    @Published var fruits: [String] = []
+    @Published var fruits: [FruitModel] = [] // Atualize o tipo da propriedade para [FruitModel]
     
     init() {
         fetchItems()
@@ -27,6 +29,29 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
         newFruit["name"] = name
         saveItem(record: newFruit)
     }
+    
+    func updateItems(fruit: FruitModel) {
+        let record = fruit.record
+        record["name"] = "NEW NAME"
+        saveItem(record: record)
+    }
+    
+    func deleteItem(indexSet: IndexSet) {
+    
+        guard let index = indexSet.first else { return }
+        let fruit = fruits[index]
+        let record = fruit.record
+        
+        CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self] returnedRecordID, returnedError in
+            DispatchQueue.main.async {
+                self?.fruits.remove(at: index)
+
+            }
+        }
+        
+    }
+    
+    
     
     private func saveItem(record: CKRecord) {
         CKContainer.default().publicCloudDatabase.save(record) { _, error in
@@ -49,7 +74,7 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
             if let error = error {
                 print("Error fetching records: \(error)")
             } else if let records = records {
-                let fetchedFruits = records.compactMap { $0["name"] as? String }
+                let fetchedFruits = records.map { FruitModel(name: $0["name"] as? String ?? "", record: $0) }
                 DispatchQueue.main.async {
                     self.fruits = fetchedFruits
                 }

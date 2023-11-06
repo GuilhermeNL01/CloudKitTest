@@ -20,10 +20,14 @@ struct CloudKitCrudBootcamp: View {
                 textField
                 addButton
                 List{
-                    ForEach(vm.fruits,id: \.self) {
-                        Text($0)
+                    ForEach(vm.fruits,id: \.self) { fruit in
+                        Text(fruit.name)
+                            .onTapGesture {
+                                vm.updateItems(fruit: fruit)
+                            }
                     }
-
+                    .onDelete(perform: vm.deleteItem)
+                    }
                 }
                 .listStyle(.plain)
             }
@@ -31,7 +35,7 @@ struct CloudKitCrudBootcamp: View {
             .navigationBarHidden(true)
         }
     }
-}
+
 
 #Preview {
     CloudKitCrudBootcamp()

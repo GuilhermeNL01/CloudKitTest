@@ -13,6 +13,7 @@
 		4000E7132A97CB090030365D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4000E7122A97CB090030365D /* Preview Assets.xcassets */; };
 		40069B552AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B542AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift */; };
 		40069B572AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B562AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift */; };
+		40069B5D2AF985D70056EA7F /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B5C2AF985D70056EA7F /* FruitModel.swift */; };
 		409EA7EC2AF2DDA000548434 /* CloudKitCrudBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		4000E7192A97CDC80030365D /* CloudKitTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitTest.entitlements; sourceTree = "<group>"; };
 		40069B542AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCrudBootcampViewModel.swift; sourceTree = "<group>"; };
 		40069B562AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitUserBootcampViewModel.swift; sourceTree = "<group>"; };
+		40069B5C2AF985D70056EA7F /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
 		409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCrudBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +60,7 @@
 		4000E70A2A97CB080030365D /* CloudKitTest */ = {
 			isa = PBXGroup;
 			children = (
+				40069B592AF985B30056EA7F /* Models */,
 				4000E7192A97CDC80030365D /* CloudKitTest.entitlements */,
 				40069B582AF96FE20056EA7F /* App */,
 				40069B512AF96EA60056EA7F /* Viewmodels */,
@@ -70,7 +73,7 @@
 		4000E7112A97CB090030365D /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				4000E70F2A97CB090030365D /* Assets.xcassets */,
+				4000E7122A97CB090030365D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -78,7 +81,6 @@
 		40069B502AF96E9D0056EA7F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4000E7122A97CB090030365D /* Preview Assets.xcassets */,
 				409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */,
 				4000E70D2A97CB080030365D /* ContentView.swift */,
 			);
@@ -97,9 +99,18 @@
 		40069B582AF96FE20056EA7F /* App */ = {
 			isa = PBXGroup;
 			children = (
+				4000E70F2A97CB090030365D /* Assets.xcassets */,
 				4000E70B2A97CB080030365D /* CloudKitTestApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		40069B592AF985B30056EA7F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40069B5C2AF985D70056EA7F /* FruitModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				40069B552AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift in Sources */,
 				4000E70E2A97CB080030365D /* ContentView.swift in Sources */,
 				409EA7EC2AF2DDA000548434 /* CloudKitCrudBootcamp.swift in Sources */,
+				40069B5D2AF985D70056EA7F /* FruitModel.swift in Sources */,
 				4000E70C2A97CB080030365D /* CloudKitTestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
