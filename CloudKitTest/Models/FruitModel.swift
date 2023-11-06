@@ -11,4 +11,5 @@ import CloudKit
 struct FruitModel: Hashable {
     let name: String
     let record: CKRecord
+    let imageURL: URL?
 }

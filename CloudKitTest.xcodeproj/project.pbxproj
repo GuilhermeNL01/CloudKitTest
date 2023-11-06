@@ -60,9 +60,9 @@
 		4000E70A2A97CB080030365D /* CloudKitTest */ = {
 			isa = PBXGroup;
 			children = (
-				40069B592AF985B30056EA7F /* Models */,
 				4000E7192A97CDC80030365D /* CloudKitTest.entitlements */,
 				40069B582AF96FE20056EA7F /* App */,
+				40069B592AF985B30056EA7F /* Models */,
 				40069B512AF96EA60056EA7F /* Viewmodels */,
 				40069B502AF96E9D0056EA7F /* Views */,
 				4000E7112A97CB090030365D /* Preview Content */,

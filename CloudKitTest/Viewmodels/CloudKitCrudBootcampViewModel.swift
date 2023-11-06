@@ -8,12 +8,10 @@
 import SwiftUI
 import CloudKit
 
-
-
 class CloudKitCrudBootcampViewModel: ObservableObject {
     
     @Published var text: String = ""
-    @Published var fruits: [FruitModel] = [] // Atualize o tipo da propriedade para [FruitModel]
+    @Published var fruits: [FruitModel] = []
     
     init() {
         fetchItems()
@@ -27,7 +25,19 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
     private func addItem(name: String) {
         let newFruit = CKRecord(recordType: "Fruits")
         newFruit["name"] = name
-        saveItem(record: newFruit)
+        
+        guard let image = UIImage(named: "imagemkk"),
+            let url = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("imagemkk.jpeg"),
+            let data = image.jpegData(compressionQuality: 1.0) else { return }
+        
+        do {
+            try data.write(to: url)
+            let asset = CKAsset(fileURL: url)
+            newFruit["image"] = asset
+            saveItem(record: newFruit)
+        } catch let error {
+            print(error)
+        }
     }
     
     func updateItems(fruit: FruitModel) {
@@ -37,7 +47,6 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
     }
     
     func deleteItem(indexSet: IndexSet) {
-    
         guard let index = indexSet.first else { return }
         let fruit = fruits[index]
         let record = fruit.record
@@ -45,13 +54,9 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
         CKContainer.default().publicCloudDatabase.delete(withRecordID: record.recordID) { [weak self] returnedRecordID, returnedError in
             DispatchQueue.main.async {
                 self?.fruits.remove(at: index)
-
             }
         }
-        
     }
-    
-    
     
     private func saveItem(record: CKRecord) {
         CKContainer.default().publicCloudDatabase.save(record) { _, error in
@@ -60,7 +65,7 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
             } else {
                 DispatchQueue.main.async {
                     self.text = ""
-                    self.fetchItems() // Recarregar a lista após a adição
+                    self.fetchItems()
                 }
             }
         }
@@ -70,13 +75,19 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
         let predicate = NSPredicate(value: true)
         let query = CKQuery(recordType: "Fruits", predicate: predicate)
         query.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
-        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+        
+        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { [weak self] records, error in
             if let error = error {
                 print("Error fetching records: \(error)")
             } else if let records = records {
-                let fetchedFruits = records.map { FruitModel(name: $0["name"] as? String ?? "", record: $0) }
+                let fetchedFruits = records.compactMap { record in
+                    guard let name = record["name"] as? String else { return nil }
+                    let imageURL = (record["image"] as? CKAsset)?.fileURL
+                    return FruitModel(name: name, record: record, imageURL: imageURL)
+                }
+
                 DispatchQueue.main.async {
-                    self.fruits = fetchedFruits
+                    self?.fruits = fetchedFruits
                 }
             }
         }
