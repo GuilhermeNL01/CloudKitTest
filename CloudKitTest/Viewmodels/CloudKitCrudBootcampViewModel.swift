@@ -72,24 +72,18 @@ class CloudKitCrudBootcampViewModel: ObservableObject {
     }
     
     private func fetchItems() {
-        let predicate = NSPredicate(value: true)
-        let query = CKQuery(recordType: "Fruits", predicate: predicate)
-        query.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
-        
-        CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { [weak self] records, error in
-            if let error = error {
-                print("Error fetching records: \(error)")
-            } else if let records = records {
-                let fetchedFruits = records.compactMap { record in
-                    guard let name = record["name"] as? String else { return nil }
-                    let imageURL = (record["image"] as? CKAsset)?.fileURL
-                    return FruitModel(name: name, record: record, imageURL: imageURL)
-                }
-
-                DispatchQueue.main.async {
-                    self?.fruits = fetchedFruits
+            let predicate = NSPredicate(value: true)
+            let query = CKQuery(recordType: "Fruits", predicate: predicate)
+            query.sortDescriptors = [NSSortDescriptor(key: "name", ascending: false)]
+            CKContainer.default().publicCloudDatabase.perform(query, inZoneWith: nil) { records, error in
+                if let error = error {
+                    print("Error fetching records: \(error)")
+                } else if let records = records {
+                    let fetchedFruits = records.map { FruitModel(name: $0["name"] as? String ?? "", record: $0) }
+                    DispatchQueue.main.async {
+                        self.fruits = fetchedFruits
+                    }
                 }
             }
         }
     }
-}
