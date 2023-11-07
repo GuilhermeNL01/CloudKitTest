@@ -11,7 +11,7 @@ import SwiftUI
 struct CloudKitTestApp: App {
     var body: some Scene {
         WindowGroup {
-            CloudKitCrudBootcamp()
+            CloudKitPushNotificationBootcamp()
         }
     }
 }

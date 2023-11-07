@@ -14,6 +14,8 @@
 		40069B552AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B542AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift */; };
 		40069B572AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B562AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift */; };
 		40069B5D2AF985D70056EA7F /* FruitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40069B5C2AF985D70056EA7F /* FruitModel.swift */; };
+		40190D932AFAAFCC00095B2B /* CloudKitPushNotificationBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40190D922AFAAFCC00095B2B /* CloudKitPushNotificationBootcamp.swift */; };
+		40190D952AFAB08B00095B2B /* CloudKitPushNotificationsBootcampViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40190D942AFAB08B00095B2B /* CloudKitPushNotificationsBootcampViewmodel.swift */; };
 		409EA7EC2AF2DDA000548434 /* CloudKitCrudBootcamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		40069B542AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCrudBootcampViewModel.swift; sourceTree = "<group>"; };
 		40069B562AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitUserBootcampViewModel.swift; sourceTree = "<group>"; };
 		40069B5C2AF985D70056EA7F /* FruitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FruitModel.swift; sourceTree = "<group>"; };
+		40190D922AFAAFCC00095B2B /* CloudKitPushNotificationBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPushNotificationBootcamp.swift; sourceTree = "<group>"; };
+		40190D942AFAB08B00095B2B /* CloudKitPushNotificationsBootcampViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitPushNotificationsBootcampViewmodel.swift; sourceTree = "<group>"; };
 		409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitCrudBootcamp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 			children = (
 				409EA7EB2AF2DDA000548434 /* CloudKitCrudBootcamp.swift */,
 				4000E70D2A97CB080030365D /* ContentView.swift */,
+				40190D922AFAAFCC00095B2B /* CloudKitPushNotificationBootcamp.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			children = (
 				40069B542AF96F5C0056EA7F /* CloudKitCrudBootcampViewModel.swift */,
 				40069B562AF96F7F0056EA7F /* CloudKitUserBootcampViewModel.swift */,
+				40190D942AFAB08B00095B2B /* CloudKitPushNotificationsBootcampViewmodel.swift */,
 			);
 			path = Viewmodels;
 			sourceTree = "<group>";
@@ -188,6 +194,8 @@
 				4000E70E2A97CB080030365D /* ContentView.swift in Sources */,
 				409EA7EC2AF2DDA000548434 /* CloudKitCrudBootcamp.swift in Sources */,
 				40069B5D2AF985D70056EA7F /* FruitModel.swift in Sources */,
+				40190D952AFAB08B00095B2B /* CloudKitPushNotificationsBootcampViewmodel.swift in Sources */,
+				40190D932AFAAFCC00095B2B /* CloudKitPushNotificationBootcamp.swift in Sources */,
 				4000E70C2A97CB080030365D /* CloudKitTestApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
