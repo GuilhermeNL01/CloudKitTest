@@ -26,3 +26,5 @@ To get started with this project, make sure you have Xcode and the required depe
 
 Feel free to contribute to this project by opening issues or pull requests. We welcome your feedback and ideas for improvement.
 
+**Authorship:**
+This project is authored by [SwiftfulThinking](https://www.youtube.com/@SwiftfulThinking) as part of the CloudKit tutorial.
